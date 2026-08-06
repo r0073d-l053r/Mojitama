@@ -1,0 +1,18 @@
+# release artifacts — published via GitHub Releases, not the tree
+mojitama.apk
+mojitama.apk.idsig
+mojitama-pwa.zip
+
+# APK build outputs
+apk-src/build/
+
+# signing material — never commit keys
+apk-src/*.keystore
+apk-src/signing.properties
+
+# local tooling and scratch
+Androidsdk/
+android-app/
+.claude/
+.loop-vault
+node_modules/

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mojitama</string>
+    <string name="widget_description">Check on your pet and feed or clean it without opening the app.</string>
+    <string name="channel_care">Pet care reminders</string>
+    <string name="channel_care_desc">Tells you when your pet is hungry, bored, tired, dirty or sick.</string>
+</resources>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RemoteViews only permits a fixed set of View classes. Everything here is on
+     that list: LinearLayout, TextView, ImageView. The meter bars are ImageViews
+     because RemoteViews cannot retint a ProgressBar before API 31, so the bars
+     are drawn as small bitmaps instead — see MojitamaWidget.barBitmap(). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/widget_bg">
+
+    <!-- ===== who ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/w_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:includeFontPadding="false"
+            android:text="🥚" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/w_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#FFFFFF"
+                android:text="Mojitama" />
+
+            <TextView
+                android:id="@+id/w_sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#D9CFFF"
+                android:text="Tap to play" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== the five meters, same icons and colours as the app ===== -->
+    <LinearLayout
+        android:id="@+id/w_meters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center_horizontal" android:layout_marginEnd="5dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="13sp" android:includeFontPadding="false" android:text="🍗" />
+            <ImageView android:id="@+id/w_bar_hunger" android:layout_width="match_parent"
+                android:layout_height="5dp" android:layout_marginTop="4dp"
+                android:scaleType="fitXY" android:contentDescription="@null" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center_horizontal" android:layout_marginEnd="5dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="13sp" android:includeFontPadding="false" android:text="😊" />
+            <ImageView android:id="@+id/w_bar_happy" android:layout_width="match_parent"
+                android:layout_height="5dp" android:layout_marginTop="4dp"
+                android:scaleType="fitXY" android:contentDescription="@null" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center_horizontal" android:layout_marginEnd="5dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="13sp" android:includeFontPadding="false" android:text="⚡" />
+            <ImageView android:id="@+id/w_bar_energy" android:layout_width="match_parent"
+                android:layout_height="5dp" android:layout_marginTop="4dp"
+                android:scaleType="fitXY" android:contentDescription="@null" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center_horizontal" android:layout_marginEnd="5dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="13sp" android:includeFontPadding="false" android:text="🧼" />
+            <ImageView android:id="@+id/w_bar_hygiene" android:layout_width="match_parent"
+                android:layout_height="5dp" android:layout_marginTop="4dp"
+                android:scaleType="fitXY" android:contentDescription="@null" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="13sp" android:includeFontPadding="false" android:text="❤️" />
+            <ImageView android:id="@+id/w_bar_health" android:layout_width="match_parent"
+                android:layout_height="5dp" android:layout_marginTop="4dp"
+                android:scaleType="fitXY" android:contentDescription="@null" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== shortcuts: these only OPEN the app at the right screen ===== -->
+    <LinearLayout
+        android:id="@+id/w_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout android:id="@+id/w_feed" android:layout_width="0dp"
+            android:layout_height="46dp" android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center" android:background="@drawable/widget_btn">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="17sp" android:includeFontPadding="false" android:text="🍽️" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="9sp" android:textStyle="bold" android:textColor="#EDE7FF"
+                android:text="FEED" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/w_play" android:layout_width="0dp"
+            android:layout_height="46dp" android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center" android:background="@drawable/widget_btn"
+            android:layout_marginStart="6dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="17sp" android:includeFontPadding="false" android:text="🎮" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="9sp" android:textStyle="bold" android:textColor="#EDE7FF"
+                android:text="PLAY" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/w_clean" android:layout_width="0dp"
+            android:layout_height="46dp" android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center" android:background="@drawable/widget_btn"
+            android:layout_marginStart="6dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="17sp" android:includeFontPadding="false" android:text="🧹" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="9sp" android:textStyle="bold" android:textColor="#EDE7FF"
+                android:text="CLEAN" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/w_meds" android:layout_width="0dp"
+            android:layout_height="46dp" android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center" android:background="@drawable/widget_btn"
+            android:layout_marginStart="6dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="17sp" android:includeFontPadding="false" android:text="💊" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="9sp" android:textStyle="bold" android:textColor="#EDE7FF"
+                android:text="MEDS" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
