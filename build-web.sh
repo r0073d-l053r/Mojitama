@@ -34,6 +34,7 @@ grep -q "mojitama-$STAMP" pwa/sw.js || { echo "!! failed to stamp pwa/sw.js"; ex
 echo "==> syncing pwa/ -> docs/ (GitHub Pages root)"
 mkdir -p docs
 cp pwa/* docs/
+touch docs/.nojekyll   # Pages must serve these verbatim — Jekyll chokes on the game JS
 
 echo "==> zipping pwa/ -> mojitama-pwa.zip"
 rm -f mojitama-pwa.zip
