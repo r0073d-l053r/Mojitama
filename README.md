@@ -122,3 +122,10 @@ The web version and the APK keep separate saves.
 
 This is an open beta — if your pet does something strange (or something delightful),
 [open an issue](../../issues). Screenshots welcome.
+
+## 📜 License
+
+Mojitama is **free to play**, and the source is published so you can see exactly what
+runs on your device — but it is **not open source**. No commercial use of the game,
+code, or assets; those rights stay with the author. The full terms are one page:
+[LICENSE.md](LICENSE.md).
